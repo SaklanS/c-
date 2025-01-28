@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t,n;
+    cin >> t;
+    vector<int>a,b,ab;
+    set<int>unab;
+    for(int i = 0; i < t; i++ ){
+        cin >> n;
+        a.push_back(n);
+    }
+    for(int i = 1; i < t; i++ ){
+        cin >> n;
+        b.push_back(n);
+    }
+    ab.insert(ab.end(),a.begin(),a.end());
+    ab.insert(ab.end(),b.begin(),b.end());
+    for(int val:ab){
+        unab.insert(val);
+    }
+
+    cout << ((unab.size()== t) ? "I become the guy." : "Oh, my keyboard!") << endl;
+    return 0;
+}
