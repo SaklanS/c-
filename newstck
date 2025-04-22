@@ -1,0 +1,55 @@
+#include <iostream>
+using namespace std;
+
+int stck[60], mx = 60;
+int top = -1;
+
+void push(int item) {
+    if (top >= mx - 1) {
+        cout << "overflow" << endl;
+    } else {
+        top++;
+        stck[top] = item;
+    }
+}
+
+int pop() {
+    if (top == -1) {
+        cout << "underflow\n";
+        return -1;
+    }
+    int item = stck[top];
+    top--;
+    cout << "popped: " << item << endl;
+    return item;
+}
+
+void display() {
+    if (top == -1) {
+        cout << "stack is empty\n";
+        return;
+    }
+
+    cout << "stack elements:\n";
+    for (int i = 0; i <= top; i++) {
+        cout << stck[i] << " ";
+    }
+    cout << endl;
+}
+
+int main() {
+    push(10);
+    push(20);
+    push(30);
+
+    display();
+
+    pop();
+    display();
+
+    pop();
+    pop();
+    pop(); // এইটা underflow দেখাবে
+
+    return 0;
+}
